@@ -4,6 +4,11 @@ description: 'Reports the JUnit test results present in the build/reports direct
 runs:
   using: composite
   steps:
+    - name: List reports
+      shell: bash
+      run: |
+        echo "Empty report files that will cause failure:"
+        find build/reports/*/jvm/TEST-* -empty
     - name: Report test results
       uses: dorny/test-reporter@v3
       with:
