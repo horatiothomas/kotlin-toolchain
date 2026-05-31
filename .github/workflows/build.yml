@@ -32,6 +32,13 @@ jobs:
       - name: Setup test caches
         uses: ./.github/actions/test-caches
 
+      # Required for CinteropTest.`lib + app - run linuxX64()`
+      - name: Install libcurl for cinterop tests (Linux-only)
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libcurl4-openssl-dev
+
       - name: Create local.properties with empty credentials
         shell: bash
         run: |
