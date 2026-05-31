@@ -9,6 +9,10 @@ apply:
 settings:
   kotlin:
     serialization: json
+  jvm:
+    test:
+      systemProperties:
+        ide.can.use.coroutines.fork: false
 
 dependencies:
   - ../../amper-telemetry
@@ -19,3 +23,4 @@ test-dependencies:
   - ../../test-base
   - ../amper-extensibility-api
   - ../amper-extensibility-sdk-stub: runtime-only
+  - com.intellij.platform:kotlinx-coroutines-core-jvm:1.10.1-intellij-5

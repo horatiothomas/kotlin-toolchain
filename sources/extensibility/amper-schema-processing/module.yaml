@@ -10,6 +10,10 @@ apply:
 settings:
   kotlin:
     serialization: json
+  jvm:
+    test:
+      systemProperties:
+        ide.can.use.coroutines.fork: false
 
 dependencies:
   - ../amper-extensibility-schema-model: exported
@@ -31,3 +35,4 @@ test-dependencies:
   - ../amper-extensibility-sdk-stub: runtime-only
   - ../../test-base
   - $libs.kotlin.poet
+  - com.intellij.platform:kotlinx-coroutines-core-jvm:1.10.1-intellij-5
